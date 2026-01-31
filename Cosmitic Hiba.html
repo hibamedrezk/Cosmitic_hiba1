@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmitic Hiba | Cosmétiques de Luxe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.css">   
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <a href="#" class="logo">Cosmitic <span>Hiba</span></a>
+            
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#shop">Boutique</a></li>
+                    <li><a href="#categories">Catégories</a></li>
+                    <li><a href="#about">À Propos</a></li>
+                    <li><a href="#statistics">Statistiques</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-icons">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Chercher un produit...">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+                <a href="#" class="user-profile-link" id="userProfileLink">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#" class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Beauté Radieuse,<br>Élégance Élevée</h1>
+                <p>Découvrez notre collection de cosmétiques premium, méticuleusement élaborés avec des ingrédients naturels et une science innovante pour sublimer votre beauté naturelle.</p>
+                <div class="hero-buttons">
+                    <a href="#shop" class="btn">Acheter Maintenant</a>
+                    <a href="#categories" class="btn btn-secondary">Découvrir la Collection</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Categories -->
+    <section class="shop-categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Catégories</h2>
+                <p>Explorez notre gamme complète de produits de beauté</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card" data-category="skincare">
+                    <div class="category-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Soin de la Peau</h3>
+                </div>
+                
+                <div class="category-card" data-category="makeup">
+                    <div class="category-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Maquillage</h3>
+                </div>
+                
+                <div class="category-card" data-category="lips">
+                    <div class="category-icon">
+                        <i class="fas fa-kiss-wink-heart"></i>
+                    </div>
+                    <h3>Lèvres</h3>
+                </div>
+                
+                <div class="category-card" data-category="eyes">
+                    <div class="category-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Yeux</h3>
+                </div>
+                
+                <div class="category-card" data-category="face">
+                    <div class="category-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Visage</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section" id="shop">
+        <div class="container">
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">Tous les produits</button>
+                <button class="filter-btn" data-filter="skincare">Soin de la peau</button>
+                <button class="filter-btn" data-filter="makeup">Maquillage</button>
+                <button class="filter-btn" data-filter="lips">Lèvres</button>
+                <button class="filter-btn" data-filter="eyes">Yeux</button>
+                <button class="filter-btn" data-filter="face">Visage</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Produits Phares</h2>
+                <p>Nos best-sellers adorés par les passionnés de beauté du monde entier</p>
+            </div>
+            
+            <div class="loading-spinner" id="productsLoading">
+                <div class="spinner"></div>
+                <p>Chargement des produits...</p>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Les produits seront chargés dynamiquement -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Notre Engagement</h2>
+                <p>Nous croyons en une beauté qui est bonne pour vous et pour la planète</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Ingrédients Naturels</h3>
+                    <p>Formulés avec des ingrédients naturels provenant de sources éthiques qui nourrissent et protègent votre peau.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Sans Cruauté</h3>
+                    <p>Nous ne testons jamais sur les animaux. Nos produits sont certifiés sans cruauté par Leaping Bunny.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Testé Dermatologiquement</h3>
+                    <p>Tous les produits sont testés cliniquement et conviennent aux peaux sensibles.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Emballage Durable</h3>
+                    <p>Notre emballage est fabriqué à partir de matériaux recyclés et est entièrement recyclable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics-section" id="statistics">
+        <div class="container">
+            <div class="section-header">
+                <h2>Statistiques d'Achat</h2>
+                <p>Suivez vos habitudes d'achat et vos dépenses</p>
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-value" id="totalPurchases">0</div>
+                    <div class="stat-label">Achats Totaux</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="stat-value" id="totalSpent">0 DH</div>
+                    <div class="stat-label">Total Dépensé</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="stat-value" id="wishlistCount">0</div>
+                    <div class="stat-label">Produits Favoris</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-value" id="avgRating">0.0</div>
+                    <div class="stat-label">Note Moyenne</div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <h3 class="chart-title">Répartition des Dépenses par Catégorie</h3>
+                <div class="chart-wrapper">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Témoignages Clients</h2>
+                <p>Ce que notre communauté dit de Cosmitic Hiba</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <p class="testimonial-text">"La Fondation Lumineuse a complètement transformé ma routine maquillage. J'ai l'impression de ne rien porter, pourtant ma peau est impeccable et rayonnante toute la journée. C'est la seule fondation que j'utiliserai !"</p>
+                    <p class="testimonial-author">- Sophie Martin</p>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">"En tant que personne à la peau sensible, je suis toujours prudente avec les nouveaux produits. Le Sérum Hydratant de Cosmitic Hiba a tout changé - il apaise ma peau et constitue une base parfaite pour le maquillage. J'adore !"</p>
+                    <p class="testimonial-author">- Jessica Lefèvre</p>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">"Les nuances du Rouge à Lèvres Velours sont magnifiques et tiennent toute la journée sans dessécher mes lèvres. J'en possède cinq nuances et je continue ! La qualité est incomparable pour le prix."</p>
+                    <p class="testimonial-author">- Olivia Dubois</p>
+                </div>
+            </div>
+            
+            <div class="slider-controls">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Cosmitic Hiba</h3>
+                    <p>Redéfinir la beauté luxueuse avec des produits qui célèbrent l'individualité, la durabilité et l'expression de soi.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#shop">Boutique</a></li>
+                        <li><a href="#categories">Catégories</a></li>
+                        <li><a href="#about">À Propos</a></li>
+                        <li><a href="#statistics">Statistiques</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Informations</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Livraison & Retours</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Points de Vente</a></li>
+                        <li><a href="#">Carrières</a></li>
+                        <li><a href="#">Presse</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Abonnez-vous pour recevoir des mises à jour, des offres exclusives et des conseils beauté.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Votre adresse email" required>
+                        <button type="submit">S'abonner</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Cosmitic Hiba. Tous droits réservés. | <a href="#">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+        <button class="modal-close" id="modalClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-content" id="modalContent">
+            <!-- Le contenu sera injecté par JavaScript -->
+        </div>
+    </div>
+
+    <!-- User Profile Modal -->
+    <div class="user-profile-modal" id="userProfileModal">
+        <div class="profile-modal-content">
+            <button class="profile-close" id="profileClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="profile-tabs">
+                <button class="profile-tab active" data-tab="purchase-history">Historique d'Achat</button>
+                <button class="profile-tab" data-tab="cart-history">Historique du Panier</button>
+                <button class="profile-tab" data-tab="wishlist">Mes Favoris</button>
+                <button class="profile-tab" data-tab="statistics">Mes Statistiques</button>
+            </div>
+
+            <div class="profile-content">
+                <!-- Purchase History Tab -->
+                <div class="profile-tab-content active" id="purchase-history">
+                    <h3 style="margin-bottom: 20px; color: var(--dark);">Mes Achats</h3>
+                    <div id="purchaseHistoryList">
+                        <!-- Les achats seront listés ici -->
+                    </div>
+                </div>
+
+                <!-- Cart History Tab -->
+                <div class="profile-tab-content" id="cart-history">
+                    <h3 style="margin-bottom: 20px; color: var(--dark);">Historique du Panier</h3>
+                    <div id="cartHistoryList">
+                        <!-- L'historique du panier sera listé ici -->
+                    </div>
+                </div>
+
+                <!-- Wishlist Tab -->
+                <div class="profile-tab-content" id="wishlist">
+                    <h3 style="margin-bottom: 20px; color: var(--dark);">Mes Produits Favoris</h3>
+                    <div id="wishlistList">
+                        <!-- Les favoris seront listés ici -->
+                    </div>
+                </div>
+
+                <!-- Statistics Tab -->
+                <div class="profile-tab-content" id="statistics">
+                    <h3 style="margin-bottom: 20px; color: var(--dark);">Mes Statistiques</h3>
+                    <div id="userStatistics">
+                        <!-- Les statistiques personnelles seront affichées ici -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <button class="modal-close" id="cartClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h3 style="padding: 20px; margin: 0; color: var(--dark); border-bottom: 2px solid var(--primary);">Mon Panier</h3>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Les articles du panier seront listés ici -->
+            </div>
+            
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total-price" id="cartTotalPrice">0,00 DH</span>
+            </div>
+            
+            <div style="padding: 20px; display: flex; gap: 15px;">
+                <button class="btn btn-secondary" style="flex: 1;" id="continueShopping">Continuer mes achats</button>
+                <button class="btn" style="flex: 1;" id="checkoutBtn">Passer la commande</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script>
+        // ==========================================
+        // DONNÉES DES PRODUITS
+        // ==========================================
+        const productsData = [
+            {
+                id: 1,
+                name: "Fondation Lumineuse",
+                price: 42.00,
+                rating: 4.5,
+                reviews: 128,
+                description: "Une fondation légère et buildable qui offre un fini radiant et naturel. Convient à tous les types de peau.",
+                ingredients: "Eau, glycérine, squalane, acide hyaluronique, extrait de pépin de raisin, vitamine E, mica.",
+                usage: "Appliquez une petite quantité sur le visage avec un pinceau, une éponge ou les doigts. Estompez vers l'extérieur pour un fini uniforme.",
+                image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                category: "face",
+                featured: true
+            },
+            {
+                id: 2,
+                name: "Rouge à Lèvres Velours",
+                price: 28.00,
+                rating: 4.0,
+                reviews: 94,
+                description: "Rouge à lèvres richement pigmenté, longue tenue avec un fini velouté confortable.",
+                ingredients: "Beurre de karité, cire d'abeille, huile de ricin, pigments minéraux, vitamine E, extrait de vanille.",
+                usage: "Appliquez directement sur les lèvres. Pour un contour précis, utilisez un crayon à lèvres avant application.",
+                image: "https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80",
+                category: "lips",
+                featured: true
+            },
+            {
+                id: 3,
+                name: "Palette Highlighter Glow",
+                price: 58.00,
+                rating: 5.0,
+                reviews: 206,
+                description: "Quatre nuances de highlighter polyvalentes pour un éclat lumineux et naturel. Parfaite pour le visage, les yeux et le corps.",
+                ingredients: "Mica, talc, oxyde de zinc, huile de jojoba, vitamine E, extrait de pêche.",
+                usage: "Appliquez avec un pinceau sur les pommettes, l'arête du nez, l'arc de Cupidon et le menton pour un éclat naturel.",
+                image: "https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                category: "makeup",
+                featured: true
+            },
+            {
+                id: 4,
+                name: "Sérum Hydratant Intense",
+                price: 65.00,
+                rating: 4.5,
+                reviews: 167,
+                description: "Un sérum léger qui délivre une hydratation intense et illumine la peau.",
+                ingredients: "Acide hyaluronique, niacinamide, extrait d'aloe vera, vitamine C, acides aminés, peptides.",
+                usage: "Appliquez 2-3 gouttes sur une peau propre et sèche avant votre crème hydratante.",
+                image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+                category: "skincare",
+                featured: true
+            },
+            {
+                id: 5,
+                name: "Mascara Volume Extrême",
+                price: 32.00,
+                rating: 4.8,
+                reviews: 312,
+                description: "Donne un volume intense et une courbe parfaite sans paquets ni effet spider.",
+                ingredients: "Cire d'abeille, huile de ricin, pigments noirs, vitamine B5, extrait de bambou.",
+                usage: "Appliquez de la racine aux pointes en effectuant un mouvement de va-et-vient pour un volume maximal.",
+                image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1487&q=80",
+                category: "eyes",
+                featured: true
+            },
+            {
+                id: 6,
+                name: "Baume à Lèvres Nutritif",
+                price: 18.00,
+                rating: 4.5,
+                reviews: 189,
+                description: "Hydrate et répare les lèvres gercées avec des ingrédients naturels et une texture non collante.",
+                ingredients: "Beurre de cacao, cire d'abeille, huile de coco, vitamine E, extrait de calendula.",
+                usage: "Appliquez sur les lèvres aussi souvent que nécessaire, surtout avant le coucher.",
+                image: "https://images.unsplash.com/photo-1572635148818-ef6fd45eb394?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
+                category: "lips",
+                featured: false
+            },
+            {
+                id: 7,
+                name: "Blush Poudre Satiné",
+                price: 34.00,
+                rating: 4.0,
+                reviews: 143,
+                description: "Apporte un éclat naturel aux joues avec une texture satinée et facile à estomper.",
+                ingredients: "Talc, mica, oxyde de fer, huile de jojoba, extrait de rose, silice.",
+                usage: "Soufflez sur le pinceau avant application. Sourire et appliquer sur les pommettes.",
+                image: "https://images.unsplash.com/photo-1612817288484-6f91600674a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                category: "makeup",
+                featured: false
+            },
+            {
+                id: 8,
+                name: "Nettoyant Visage Doux",
+                price: 26.00,
+                rating: 4.8,
+                reviews: 278,
+                description: "Nettoie en douceur sans décaper, idéal pour tous types de peau même les plus sensibles.",
+                ingredients: "Eau de rose, glycérine, extrait de concombre, acide lactique, aloe vera, camomille.",
+                usage: "Masser sur peau humide, rincer abondamment à l'eau tiède. Utiliser matin et soir.",
+                image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
+                category: "skincare",
+                featured: false
+            },
+            {
+                id: 9,
+                name: "Palette Fards à Paupières",
+                price: 52.00,
+                rating: 4.6,
+                reviews: 225,
+                description: "12 nuances pigmentées et blendables pour créer des looks du naturel au smokey.",
+                ingredients: "Talc, mica, oxydes minéraux, huile de jojoba, vitamine E, extrait de thé vert.",
+                usage: "Utiliser des pinceaux propres pour chaque couleur. Commencer par les couleurs claires.",
+                image: "https://images.unsplash.com/photo-1610998342124-c4fcba4d8417?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                category: "eyes",
+                featured: false
+            },
+            {
+                id: 10,
+                name: "Spray Fixateur Longue Tenue",
+                price: 38.00,
+                rating: 4.7,
+                reviews: 198,
+                description: "Fixe le maquillage jusqu'à 16 heures avec un fini naturel, sans effet masque.",
+                ingredients: "Eau, glycérine, extrait d'algue, vitamine B5, acide hyaluronique, panthénol.",
+                usage: "Vaporiser à 30 cm du visage après avoir terminé votre maquillage.",
+                image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                category: "makeup",
+                featured: false
+            },
+            {
+                id: 11,
+                name: "Crème Hydratante Réparatrice",
+                price: 45.00,
+                rating: 4.9,
+                reviews: 156,
+                description: "Hydratation intense 24h avec effet réparateur pour une peau douce et rebondie.",
+                ingredients: "Beurre de karité, acide hyaluronique, niacinamide, céramides, vitamine E.",
+                usage: "Appliquez matin et soir sur une peau propre et sèche en massant délicatement.",
+                image: "https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                category: "skincare",
+                featured: false
+            },
+            {
+                id: 12,
+                name: "Poudre Compacte Matifiante",
+                price: 36.00,
+                rating: 4.4,
+                reviews: 178,
+                description: "Contrôle la brillance toute la journée avec un fini mat naturel et léger.",
+                ingredients: "Talc, silice, amidon de riz, oxyde de zinc, extrait de thé vert.",
+                usage: "Appliquez avec une houppette sur les zones brillantes tout au long de la journée.",
+                image: "https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                category: "face",
+                featured: false
+            }
+        ];
+
+        // ==========================================
+        // VARIABLES GLOBALES
+        // ==========================================
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
+        let cartHistory = JSON.parse(localStorage.getItem('cartHistory')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        let currentUser = JSON.parse(localStorage.getItem('currentUser')) || { name: "Utilisateur", email: "" };
+        let expenseChart = null;
+
+        // ==========================================
+        // FONCTIONS UTILITAIRES
+        // ==========================================
+        function formatPrice(price) {
+            return price.toFixed(2).replace('.', ',') + ' DH';
+        }
+
+        function generateStars(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
+        function updateCartCount() {
+            const cartCount = document.getElementById('cartCount');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        function saveToLocalStorage() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('purchaseHistory', JSON.stringify(purchaseHistory));
+            localStorage.setItem('cartHistory', JSON.stringify(cartHistory));
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
+
+        // ==========================================
+        // INITIALISATION DU SITE
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSite();
+            loadProducts();
+            updateCartCount();
+            updateStatistics();
+        });
+
+        function initializeSite() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('#mainNav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Testimonial Slider
+            initializeTestimonialSlider();
+            
+            // Newsletter form submission
+            const newsletterForm = document.getElementById('newsletterForm');
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = newsletterForm.querySelector('input').value;
+                
+                showNotification(`Merci de vous être abonné avec ${email} ! Vous recevrez bientôt nos conseils beauté et offres exclusives.`);
+                newsletterForm.reset();
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if(href === '#' || href === '') return;
+                    
+                    e.preventDefault();
+                    
+                    const targetElement = document.querySelector(href);
+                    
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        function initializeTestimonialSlider() {
+            const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+            const sliderDots = document.querySelectorAll('.slider-dot');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                testimonialSlides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                sliderDots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                testimonialSlides[index].classList.add('active');
+                sliderDots[index].classList.add('active');
+                currentSlide = index;
+            }
+            
+            sliderDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+            
+            function nextSlide() {
+                let nextIndex = (currentSlide + 1) % testimonialSlides.length;
+                showSlide(nextIndex);
+            }
+            
+            setInterval(nextSlide, 5000);
+        }
+
+        // ==========================================
+        // GESTION DES PRODUITS
+        // ==========================================
+        function loadProducts() {
+            const productsGrid = document.getElementById('productsGrid');
+            const loadingSpinner = document.getElementById('productsLoading');
+            
+            loadingSpinner.style.display = 'block';
+            
+            // Simuler un délai de chargement
+            setTimeout(() => {
+                productsGrid.innerHTML = productsData.map(product => createProductCard(product)).join('');
+                loadingSpinner.style.display = 'none';
+                
+                // Ajouter les événements aux boutons
+                addProductEventListeners();
+                addFilterEventListeners();
+                addCategoryEventListeners();
+            }, 500);
+        }
+
+        function createProductCard(product) {
+            return `
+                <div class="product-card" data-category="${product.category}" data-id="${product.id}">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    </div>
+                    <div class="quick-view" data-id="${product.id}">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <div class="product-rating">
+                            ${generateStars(product.rating)}
+                            <span>(${product.reviews})</span>
+                        </div>
+                        <p class="product-price">${formatPrice(product.price)}</p>
+                        <p>${product.description}</p>
+                        <div class="product-actions">
+                            <button class="add-to-cart" data-id="${product.id}">
+                                <i class="fas fa-shopping-cart"></i> Ajouter
+                            </button>
+                            <button class="add-to-wishlist" data-id="${product.id}">
+                                <i class="${wishlist.some(item => item.id === product.id) ? 'fas' : 'far'} fa-heart"></i> Favoris
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function addProductEventListeners() {
+            // Quick View
+            document.querySelectorAll('.quick-view').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const product = productsData.find(p => p.id === productId);
+                    if (product) {
+                        showProductModal(product);
+                    }
+                });
+            });
+
+            // Add to Cart
+            document.querySelectorAll('.add-to-cart').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const product = productsData.find(p => p.id === productId);
+                    if (product) {
+                        addToCart(product);
+                        addToCartHistory(product);
+                    }
+                });
+            });
+
+            // Add to Wishlist
+            document.querySelectorAll('.add-to-wishlist').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const product = productsData.find(p => p.id === productId);
+                    if (product) {
+                        toggleWishlist(product);
+                        this.innerHTML = `<i class="${wishlist.some(item => item.id === product.id) ? 'fas' : 'far'} fa-heart"></i> Favoris`;
+                    }
+                });
+            });
+        }
+
+        // ==========================================
+        // FILTRES ET CATÉGORIES
+        // ==========================================
+        function addFilterEventListeners() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter products
+                    productCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+
+        function addCategoryEventListeners() {
+            const categoryCards = document.querySelectorAll('.category-card');
+            
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    const filterButton = document.querySelector(`.filter-btn[data-filter="${category}"]`);
+                    
+                    if (filterButton) {
+                        filterButton.click();
+                        
+                        // Scroll to products section
+                        const shopSection = document.querySelector('#shop');
+                        window.scrollTo({
+                            top: shopSection.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // ==========================================
+        // MODAL DES PRODUITS
+        // ==========================================
+        function showProductModal(product) {
+            const modal = document.getElementById('productModal');
+            const modalContent = document.getElementById('modalContent');
+            const isInWishlist = wishlist.some(item => item.id === product.id);
+            
+            modalContent.innerHTML = `
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px;">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" style="width: 100%; border-radius: 12px;">
+                    </div>
+                    <div class="product-details">
+                        <h2 style="font-size: 2.2rem; margin-bottom: 15px;">${product.name}</h2>
+                        <div class="product-rating" style="margin-bottom: 20px;">
+                            ${generateStars(product.rating)}
+                            <span>(${product.reviews} avis)</span>
+                        </div>
+                        <p class="product-price" style="font-size: 2rem; color: var(--accent); margin-bottom: 30px;">${formatPrice(product.price)}</p>
+                        
+                        <div style="margin-bottom: 30px;">
+                            <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--dark);">Description</h3>
+                            <p>${product.description}</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 30px;">
+                            <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--dark);">Ingrédients</h3>
+                            <p>${product.ingredients}</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 30px;">
+                            <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--dark);">Mode d'emploi</h3>
+                            <p>${product.usage}</p>
+                        </div>
+                        
+                        <div style="display: flex; gap: 15px; margin-top: 40px;">
+                            <button class="btn" style="padding: 15px 30px; font-size: 1rem;" id="modalAddToCart" data-id="${product.id}">Ajouter au panier</button>
+                            <button class="btn btn-secondary" style="padding: 15px 30px; font-size: 1rem;" id="modalAddToWishlist" data-id="${product.id}">
+                                <i class="${isInWishlist ? 'fas' : 'far'} fa-heart"></i> ${isInWishlist ? 'Retirer des' : 'Ajouter aux'} favoris
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Add event listeners to modal buttons
+            document.getElementById('modalAddToCart').addEventListener('click', function() {
+                addToCart(product);
+                addToCartHistory(product);
+                showNotification(`${product.name} ajouté au panier !`);
+            });
+            
+            document.getElementById('modalAddToWishlist').addEventListener('click', function() {
+                toggleWishlist(product);
+                this.innerHTML = `<i class="${wishlist.some(item => item.id === product.id) ? 'fas' : 'far'} fa-heart"></i> ${wishlist.some(item => item.id === product.id) ? 'Retirer des' : 'Ajouter aux'} favoris`;
+                showNotification(wishlist.some(item => item.id === product.id) ? 
+                    `${product.name} ajouté aux favoris !` : 
+                    `${product.name} retiré des favoris !`);
+            });
+            
+            // Close modal
+            document.getElementById('modalClose').addEventListener('click', closeProductModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) closeProductModal();
+            });
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('productModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // ==========================================
+        // GESTION DU PANIER
+        // ==========================================
+        function addToCart(product) {
+            const existingItem = cart.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+            
+            // Animation du panier
+            const cartIcon = document.getElementById('cartIcon');
+            cartIcon.classList.add('cart-bounce');
+            setTimeout(() => cartIcon.classList.remove('cart-bounce'), 1000);
+            
+            updateCartCount();
+            saveToLocalStorage();
+        }
+
+        function addToCartHistory(product) {
+            const historyItem = {
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                date: new Date().toLocaleString('fr-FR'),
+                quantity: 1
+            };
+            
+            cartHistory.unshift(historyItem);
+            
+            // Garder seulement les 50 derniers éléments
+            if (cartHistory.length > 50) {
+                cartHistory = cartHistory.slice(0, 50);
+            }
+            
+            saveToLocalStorage();
+        }
+
+        function toggleWishlist(product) {
+            const index = wishlist.findIndex(item => item.id === product.id);
+            
+            if (index === -1) {
+                wishlist.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    date: new Date().toLocaleDateString('fr-FR')
+                });
+            } else {
+                wishlist.splice(index, 1);
+            }
+            
+            saveToLocalStorage();
+            updateStatistics();
+        }
+
+        // ==========================================
+        // MODAL DU PANIER
+        // ==========================================
+        document.getElementById('cartIcon').addEventListener('click', function(e) {
+            e.preventDefault();
+            showCartModal();
+        });
+
+        function showCartModal() {
+            const modal = document.getElementById('cartModal');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotalPrice = document.getElementById('cartTotalPrice');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>Votre panier est vide</h3>
+                        <p>Ajoutez des produits pour commencer vos achats</p>
+                    </div>
+                `;
+                cartTotalPrice.textContent = '0,00 DH';
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="cart-item" data-id="${item.id}">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;">
+                            <div class="cart-item-info">
+                                <div class="cart-item-name">${item.name}</div>
+                                <div class="cart-item-price">${formatPrice(item.price)}</div>
+                            </div>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn decrease-quantity" data-id="${item.id}">-</button>
+                            <span style="min-width: 30px; text-align: center;">${item.quantity}</span>
+                            <button class="quantity-btn increase-quantity" data-id="${item.id}">+</button>
+                            <button class="quantity-btn remove-item" data-id="${item.id}" style="margin-left: 10px; color: #ff4444;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Calculate total
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                cartTotalPrice.textContent = formatPrice(total);
+                
+                // Add event listeners to cart buttons
+                document.querySelectorAll('.decrease-quantity').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-id'));
+                        updateCartQuantity(productId, -1);
+                    });
+                });
+                
+                document.querySelectorAll('.increase-quantity').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-id'));
+                        updateCartQuantity(productId, 1);
+                    });
+                });
+                
+                document.querySelectorAll('.remove-item').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-id'));
+                        removeFromCart(productId);
+                    });
+                });
+            }
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Close modal
+            document.getElementById('cartClose').addEventListener('click', closeCartModal);
+            document.getElementById('continueShopping').addEventListener('click', closeCartModal);
+            document.getElementById('checkoutBtn').addEventListener('click', checkout);
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) closeCartModal();
+            });
+        }
+
+        function updateCartQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity += change;
+                
+                if (item.quantity <= 0) {
+                    cart = cart.filter(item => item.id !== productId);
+                }
+                
+                saveToLocalStorage();
+                updateCartCount();
+                showCartModal(); // Refresh cart modal
+                
+                if (change > 0) {
+                    showNotification('Quantité mise à jour !');
+                }
+            }
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            saveToLocalStorage();
+            updateCartCount();
+            showCartModal(); // Refresh cart modal
+            showNotification('Produit retiré du panier');
+        }
+
+        function closeCartModal() {
+            const modal = document.getElementById('cartModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Votre panier est vide !', 'error');
+                return;
+            }
+            
+            // Add to purchase history
+            const purchase = {
+                id: Date.now(),
+                date: new Date().toLocaleString('fr-FR'),
+                items: [...cart],
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+            };
+            
+            purchaseHistory.unshift(purchase);
+            
+            // Clear cart
+            cart = [];
+            saveToLocalStorage();
+            updateCartCount();
+            updateStatistics();
+            
+            // Close cart modal
+            closeCartModal();
+            
+            // Show success message
+            showNotification('Commande passée avec succès ! Merci pour votre achat.', 'success');
+            
+            // Update user profile modal if open
+            if (document.getElementById('userProfileModal').style.display === 'block') {
+                loadUserProfileData();
+            }
+        }
+
+        // ==========================================
+        // MODAL DU PROFIL UTILISATEUR
+        // ==========================================
+        document.getElementById('userProfileLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            showUserProfileModal();
+        });
+
+        function showUserProfileModal() {
+            const modal = document.getElementById('userProfileModal');
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            loadUserProfileData();
+            
+            // Tab switching
+            document.querySelectorAll('.profile-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.profile-tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    document.getElementById(tabName).classList.add('active');
+                });
+            });
+            
+            // Close modal
+            document.getElementById('profileClose').addEventListener('click', closeUserProfileModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) closeUserProfileModal();
+            });
+        }
+
+        function loadUserProfileData() {
+            loadPurchaseHistory();
+            loadCartHistory();
+            loadWishlist();
+            loadUserStatistics();
+        }
+
+        function loadPurchaseHistory() {
+            const list = document.getElementById('purchaseHistoryList');
+            
+            if (purchaseHistory.length === 0) {
+                list.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3>Aucun achat pour le moment</h3>
+                        <p>Vos achats apparaîtront ici après votre première commande</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            list.innerHTML = purchaseHistory.map(purchase => `
+                <div class="history-item">
+                    <div class="history-info">
+                        <div class="history-date">Commande #${purchase.id} - ${purchase.date}</div>
+                        <div class="history-product">${purchase.items.length} produit(s)</div>
+                        <div class="history-price">Total: ${formatPrice(purchase.total)}</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <button class="btn btn-small view-order-details" data-id="${purchase.id}">Détails</button>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Add event listeners to view order details buttons
+            document.querySelectorAll('.view-order-details').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const orderId = parseInt(this.getAttribute('data-id'));
+                    const order = purchaseHistory.find(o => o.id === orderId);
+                    if (order) {
+                        showOrderDetails(order);
+                    }
+                });
+            });
+        }
+
+        function loadCartHistory() {
+            const list = document.getElementById('cartHistoryList');
+            
+            if (cartHistory.length === 0) {
+                list.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3>Aucun historique du panier</h3>
+                        <p>Vos ajouts au panier apparaîtront ici</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            list.innerHTML = cartHistory.slice(0, 20).map(item => `
+                <div class="history-item">
+                    <div class="history-info">
+                        <div class="history-date">${item.date}</div>
+                        <div class="history-product">${item.name}</div>
+                        <div class="history-price">${formatPrice(item.price)}</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <button class="btn btn-small add-again" data-id="${item.id}">Ajouter</button>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Add event listeners to add again buttons
+            document.querySelectorAll('.add-again').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const product = productsData.find(p => p.id === productId);
+                    if (product) {
+                        addToCart(product);
+                        showNotification(`${product.name} ajouté au panier !`);
+                    }
+                });
+            });
+        }
+
+        function loadWishlist() {
+            const list = document.getElementById('wishlistList');
+            
+            if (wishlist.length === 0) {
+                list.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Aucun produit dans les favoris</h3>
+                        <p>Ajoutez des produits à vos favoris pour les retrouver facilement</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            list.innerHTML = wishlist.map(item => `
+                <div class="history-item">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover;">
+                        <div class="history-info">
+                            <div class="history-product">${item.name}</div>
+                            <div class="history-price">${formatPrice(item.price)}</div>
+                            <div class="history-date">Ajouté le: ${item.date}</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-small add-to-cart-from-wishlist" data-id="${item.id}">Ajouter au panier</button>
+                        <button class="btn btn-small remove-from-wishlist" data-id="${item.id}" style="background-color: transparent; color: var(--text-light);">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Add event listeners
+            document.querySelectorAll('.add-to-cart-from-wishlist').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const product = productsData.find(p => p.id === productId);
+                    if (product) {
+                        addToCart(product);
+                        showNotification(`${product.name} ajouté au panier !`);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.remove-from-wishlist').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const product = productsData.find(p => p.id === productId);
+                    if (product) {
+                        toggleWishlist(product);
+                        loadWishlist(); // Refresh wishlist
+                        showNotification(`${product.name} retiré des favoris !`);
+                    }
+                });
+            });
+        }
+
+        function loadUserStatistics() {
+            const container = document.getElementById('userStatistics');
+            
+            // Calculate statistics
+            const totalPurchases = purchaseHistory.length;
+            const totalSpent = purchaseHistory.reduce((sum, purchase) => sum + purchase.total, 0);
+            const wishlistCount = wishlist.length;
+            
+            // Calculate average rating from reviewed products
+            const reviewedProducts = purchaseHistory.flatMap(purchase => 
+                purchase.items.map(item => productsData.find(p => p.id === item.id)?.rating || 0)
+            ).filter(rating => rating > 0);
+            
+            const avgRating = reviewedProducts.length > 0 ? 
+                (reviewedProducts.reduce((sum, rating) => sum + rating, 0) / reviewedProducts.length).toFixed(1) : 
+                "0.0";
+            
+            container.innerHTML = `
+                <div class="stats-container" style="margin-top: 0;">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="stat-value">${totalPurchases}</div>
+                        <div class="stat-label">Commandes</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="stat-value">${formatPrice(totalSpent)}</div>
+                        <div class="stat-label">Total Dépensé</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-value">${wishlistCount}</div>
+                        <div class="stat-label">Favoris</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-value">${avgRating}</div>
+                        <div class="stat-label">Note Moyenne</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container" style="margin-top: 30px;">
+                    <h3 class="chart-title">Mes Achats par Mois</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="userPurchaseChart"></canvas>
+                    </div>
+                </div>
+            `;
+            
+            // Create user purchase chart
+            createUserPurchaseChart();
+        }
+
+        function showOrderDetails(order) {
+            const detailsHtml = `
+                <div style="padding: 20px;">
+                    <h3 style="margin-bottom: 20px; color: var(--dark);">Détails de la commande #${order.id}</h3>
+                    <div style="margin-bottom: 15px; color: var(--text-light);">
+                        <strong>Date:</strong> ${order.date}
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px; color: var(--dark);">Produits:</h4>
+                        ${order.items.map(item => `
+                            <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f0f0;">
+                                <div>
+                                    <div>${item.name}</div>
+                                    <div style="font-size: 0.9rem; color: var(--text-light);">Quantité: ${item.quantity}</div>
+                                </div>
+                                <div style="font-weight: 600; color: var(--accent);">
+                                    ${formatPrice(item.price * item.quantity)}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 600; padding-top: 15px; border-top: 2px solid var(--accent);">
+                        <div>Total:</div>
+                        <div style="color: var(--accent);">${formatPrice(order.total)}</div>
+                    </div>
+                </div>
+            `;
+            
+            // Create a modal for order details
+            const modal = document.createElement('div');
+            modal.className = 'user-profile-modal';
+            modal.innerHTML = `
+                <div class="profile-modal-content" style="max-width: 500px;">
+                    <button class="profile-close close-order-details">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    ${detailsHtml}
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            modal.style.display = 'block';
+            
+            // Close modal
+            modal.querySelector('.close-order-details').addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    document.body.removeChild(modal);
+                }
+            });
+        }
+
+        function closeUserProfileModal() {
+            const modal = document.getElementById('userProfileModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // ==========================================
+        // STATISTIQUES ET GRAPHIQUES
+        // ==========================================
+        function updateStatistics() {
+            // Update global statistics
+            const totalPurchases = purchaseHistory.length;
+            const totalSpent = purchaseHistory.reduce((sum, purchase) => sum + purchase.total, 0);
+            const wishlistCount = wishlist.length;
+            
+            // Calculate average rating from all products
+            const totalRating = productsData.reduce((sum, product) => sum + product.rating, 0);
+            const avgRating = (totalRating / productsData.length).toFixed(1);
+            
+            document.getElementById('totalPurchases').textContent = totalPurchases;
+            document.getElementById('totalSpent').textContent = formatPrice(totalSpent);
+            document.getElementById('wishlistCount').textContent = wishlistCount;
+            document.getElementById('avgRating').textContent = avgRating;
+            
+            // Update expense chart
+            updateExpenseChart();
+        }
+
+        function updateExpenseChart() {
+            const ctx = document.getElementById('expenseChart').getContext('2d');
+            
+            // Calculate expenses by category
+            const categories = ['skincare', 'makeup', 'lips', 'eyes', 'face'];
+            const categoryNames = {
+                skincare: 'Soin Peau',
+                makeup: 'Maquillage',
+                lips: 'Lèvres',
+                eyes: 'Yeux',
+                face: 'Visage'
+            };
+            
+            const expenses = categories.map(category => {
+                return purchaseHistory.reduce((sum, purchase) => {
+                    const categoryItems = purchase.items.filter(item => {
+                        const product = productsData.find(p => p.id === item.id);
+                        return product && product.category === category;
+                    });
+                    
+                    return sum + categoryItems.reduce((itemSum, item) => itemSum + (item.price * item.quantity), 0);
+                }, 0);
+            });
+            
+            // Destroy previous chart if exists
+            if (expenseChart) {
+                expenseChart.destroy();
+            }
+            
+            // Create new chart
+            expenseChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: categories.map(cat => categoryNames[cat]),
+                    datasets: [{
+                        data: expenses,
+                        backgroundColor: [
+                            'rgba(212, 165, 116, 0.8)',
+                            'rgba(248, 233, 230, 0.8)',
+                            'rgba(245, 208, 197, 0.8)',
+                            'rgba(138, 124, 117, 0.8)',
+                            'rgba(90, 74, 66, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgb(212, 165, 116)',
+                            'rgb(248, 233, 230)',
+                            'rgb(245, 208, 197)',
+                            'rgb(138, 124, 117)',
+                            'rgb(90, 74, 66)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true,
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = expenses.reduce((a, b) => a + b, 0);
+                                    const percentage = total > 0 ? Math.round((value / total) * 100) : 0;
+                                    return `${label}: ${formatPrice(value)} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createUserPurchaseChart() {
+            const ctx = document.getElementById('userPurchaseChart').getContext('2d');
+            
+            // Get purchases by month for the last 6 months
+            const months = [];
+            const monthlyTotals = [];
+            
+            for (let i = 5; i >= 0; i--) {
+                const date = new Date();
+                date.setMonth(date.getMonth() - i);
+                const monthName = date.toLocaleDateString('fr-FR', { month: 'short' });
+                months.push(monthName);
+                
+                const monthStart = new Date(date.getFullYear(), date.getMonth(), 1);
+                const monthEnd = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+                
+                const monthTotal = purchaseHistory.reduce((sum, purchase) => {
+                    const purchaseDate = new Date(purchase.date);
+                    if (purchaseDate >= monthStart && purchaseDate <= monthEnd) {
+                        return sum + purchase.total;
+                    }
+                    return sum;
+                }, 0);
+                
+                monthlyTotals.push(monthTotal);
+            }
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Dépenses (DH)',
+                        data: monthlyTotals,
+                        backgroundColor: 'rgba(212, 165, 116, 0.1)',
+                        borderColor: 'rgb(212, 165, 116)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return formatPrice(value);
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ==========================================
+        // FONCTIONNALITÉ DE RECHERCHE
+        // ==========================================
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            if (searchTerm.length === 0) {
+                searchResults.classList.remove('active');
+                return;
+            }
+            
+            const filteredProducts = productsData.filter(product =>
+                product.name.toLowerCase().includes(searchTerm) ||
+                product.description.toLowerCase().includes(searchTerm) ||
+                product.category.toLowerCase().includes(searchTerm)
+            );
+            
+            if (filteredProducts.length > 0) {
+                searchResults.innerHTML = filteredProducts.slice(0, 5).map(product => `
+                    <div class="search-result-item" onclick="selectProduct(${product.id})">
+                        <img src="${product.image}" alt="${product.name}" class="search-result-image">
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: var(--dark);">${product.name}</div>
+                            <div style="font-size: 0.85rem; color: var(--accent);">${formatPrice(product.price)}</div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                if (filteredProducts.length > 5) {
+                    searchResults.innerHTML += `<div class="search-result-item" style="text-align: center; color: var(--text-light); font-size: 0.9rem; justify-content: center;">
+                        + ${filteredProducts.length - 5} autres produits
+                    </div>`;
+                }
+                
+                searchResults.classList.add('active');
+            } else {
+                searchResults.innerHTML = '<div class="search-result-item" style="text-align: center; color: var(--text-light); justify-content: center;">Aucun produit trouvé</div>';
+                searchResults.classList.add('active');
+            }
+        });
+
+        // Fonction accessible globalement pour la sélection de produit
+        window.selectProduct = function(productId) {
+            const product = productsData.find(p => p.id === productId);
+            if (product) {
+                // Fermer les résultats de recherche
+                searchInput.value = product.name;
+                searchResults.classList.remove('active');
+                
+                // Scroll vers la section boutique
+                const shopSection = document.querySelector('#shop');
+                window.scrollTo({
+                    top: shopSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Mettre en évidence le produit
+                setTimeout(() => {
+                    const productCard = document.querySelector(`.product-card[data-id="${productId}"]`);
+                    if (productCard) {
+                        // Supprimer le surlignage des autres cartes
+                        document.querySelectorAll('.product-card').forEach(card => {
+                            card.style.boxShadow = 'var(--shadow-light)';
+                            card.style.transform = 'none';
+                        });
+                        
+                        // Mettre en évidence la carte sélectionnée
+                        productCard.style.boxShadow = '0 0 30px rgba(212, 165, 116, 0.8)';
+                        productCard.style.transform = 'scale(1.05)';
+                        
+                        // Scroll vers la carte
+                        productCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        // Retirer le surlignage après 4 secondes
+                        setTimeout(() => {
+                            productCard.style.boxShadow = 'var(--shadow-light)';
+                            productCard.style.transform = 'none';
+                        }, 4000);
+                    }
+                }, 500);
+            }
+        };
+
+        // Fermer les résultats de recherche en cliquant ailleurs
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-container')) {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        // Nettoyer la recherche avec la touche Échap
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                searchInput.value = '';
+                searchResults.classList.remove('active');
+            }
+        });
+
+        // ==========================================
+        // CHARGEMENT DES DONNÉES DE DÉMONSTRATION
+        // ==========================================
+        // Charger des données de démonstration si aucun achat n'existe
+        if (purchaseHistory.length === 0) {
+            const demoPurchases = [
+                {
+                    id: 1001,
+                    date: new Date('2026-01-28').toLocaleString('fr-FR'),
+                    items: [
+                        { id: 1, name: "Fondation Lumineuse", price: 42.00, quantity: 1, image: productsData[0].image },
+                        { id: 5, name: "Mascara Volume Extrême", price: 32.00, quantity: 1, image: productsData[4].image }
+                    ],
+                    total: 74.00
+                },
+                {
+                    id: 1002,
+                    date: new Date('2026-01-25').toLocaleString('fr-FR'),
+                    items: [
+                        { id: 2, name: "Rouge à Lèvres Velours", price: 28.00, quantity: 2, image: productsData[1].image },
+                        { id: 6, name: "Baume à Lèvres Nutritif", price: 18.00, quantity: 1, image: productsData[5].image }
+                    ],
+                    total: 74.00
+                },
+                {
+                    id: 1003,
+                    date: new Date('2026-01-20').toLocaleString('fr-FR'),
+                    items: [
+                        { id: 4, name: "Sérum Hydratant Intense", price: 65.00, quantity: 1, image: productsData[3].image }
+                    ],
+                    total: 65.00
+                }
+            ];
+            
+            purchaseHistory = demoPurchases;
+            saveToLocalStorage();
+        }
+
+        // Ajouter des produits à la wishlist de démonstration
+        if (wishlist.length === 0) {
+            wishlist = [
+                { id: 3, name: "Palette Highlighter Glow", price: 58.00, image: productsData[2].image, date: "25/01/2026" },
+                { id: 10, name: "Spray Fixateur Longue Tenue", price: 38.00, image: productsData[9].image, date: "20/01/2026" }
+            ];
+            saveToLocalStorage();
+        }
+
+        // Initialiser les statistiques
+        updateStatistics();
+    </script>
+</body>
+</html>
